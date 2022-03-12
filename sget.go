@@ -1,12 +1,17 @@
 package main
 
 import (
+	"fmt"
 	"log"
-	"os"
 )
 
 func main() {
-	url := parseArgs(os.Args)
-
-	log.Println(request(url))
+	var url string
+	fmt.Print("Enter URL: (start with http(s) ")
+	fmt.Scanln(&url)
+	if isURL(url) {
+		log.Println(request(url))
+	} else {
+		log.Fatalln("Incorrect URL.")
+	}
 }

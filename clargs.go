@@ -14,16 +14,3 @@ func isURL(url string) bool {
 		return false
 	}
 }
-
-func parseArgs(arguments []string) string {
-	if len(arguments) == 1 {
-		panic("unsufficient command line arguments. Usage:\n\t sget <url>")
-	}
-	args := arguments[1:]
-
-	if isURL(args[0]) {
-		return args[0]
-	} else {
-		panic("incorrect URL")
-	}
-}
